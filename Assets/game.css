@@ -2,26 +2,26 @@
     display: flex;
     margin-bottom: 0.5rem;
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 2rem;
     border: 0.1rem solid rgb(86, 165, 235, 0.25);
     background-color: white;
   }
   
-  .qContainer:hover {
+  .qContainer :hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
-    transition: transform 150ms;
+    transition: transform 125ms;
   }
   
   .qPrefix {
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem;
     background-color: purple;
     color: gold;
   }
   
   .qText  {
-    padding: 1.5rem;
+    padding: 2rem;
     width: 100%;
   }
   
@@ -49,25 +49,25 @@
   }
   
   #gameBar {
-    width: 20rem;
-    height: 4rem;
-    border: 0.3rem solid #56a5eb;
-    margin-top: 1.5rem;
+    width: 18rem;
+    height: 5rem;
+    border: 0.4rem solid #56a5eb;
+    margin-top: 2rem;
   }
   
   #gameBarFull {
-    height: 3.4rem;
+    height: 3.6rem;
     background-color: #56a5eb;
     width: 0%;
   }
   
   #loader {
-    border: 1.6rem solid white;
+    border: 1.7rem solid white;
     border-radius: 50%;
-    border-top: 1.6rem solid #56a5eb;
-    width: 12rem;
-    height: 12rem;
-    animation: spin 2s linear infinite;
+    border-top: 1.7rem solid #56a5eb;
+    width: 13rem;
+    height: 13rem;
+    animation: spin 3s linear infinite;
   }
   
   @keyframes spin {

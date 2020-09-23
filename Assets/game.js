@@ -1,20 +1,20 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
-const progressText = document.getElementById('progressText');
+const text = document.getElementById('text');
 const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
-let clock = document.getElementById('timer')
-let currentQuestion = {};
-let acceptingAnswers = false;
-let score = 0;
-let questionCounter = 0;
-let availableQuesions = [];
+var clock = document.getElementById('timer')
+var firstQuestion = {};
+var inputAnswers = false;
+var score = 0;
+var questionCounter = 0;
+var questionList = [];
 var timer
 var gameClock
 
-let questions = [
+var questions = [
     {
         answer: 3,
         choice1: "Green",
@@ -60,7 +60,7 @@ startGame = () => {
     clock.textContent = gameClock;
     questionCounter = 0;
     score = 0;
-    availableQuesions = [...questions];
+    questionList = [...questions];
     getNewQuestion();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
@@ -80,37 +80,37 @@ function endGame(){
 }
 
 getNewQuestion = () => {
-    if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    if (questionList.length === 0 || questionCounter >= MAX_QUESTIONS) {
         return endGame();
     }
     questionCounter++;
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+    text.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
 
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-    currentQuestion = availableQuesions[questionIndex];
-    question.innerHTML = currentQuestion.question;
+    const questionIndex = Math.floor(Math.random() * questionList.length);
+    firstQuestion = questionList[questionIndex];
+    question.innerHTML = firstQuestion.question;
 
     choices.forEach((choice) => {
         const number = choice.dataset['number'];
-        choice.innerHTML = currentQuestion['choice' + number];
+        choice.innerHTML = firstQuestion['choice' + number];
     });
 
-    availableQuesions.splice(questionIndex, 1);
-    acceptingAnswers = true;
+    questionList.splice(questionIndex, 1);
+    inputAnswers = true;
 };
 
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
-        if (!acceptingAnswers) return;
+        if (!inputAnswers) return;
 
-        acceptingAnswers = false;
+        inputAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
 
         const classToApply =
-            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+            selectedAnswer == firstQuestion.answer ? 'correct' : 'incorrect';
 
         if (classToApply === 'correct') {
             incrementScore(CORRECT_BONUS);
