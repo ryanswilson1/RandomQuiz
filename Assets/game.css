@@ -1,4 +1,4 @@
-.choice-container {
+.qContainer {
     display: flex;
     margin-bottom: 0.5rem;
     width: 100%;
@@ -7,20 +7,20 @@
     background-color: white;
   }
   
-  .choice-container:hover {
+  .qContainer:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
   }
   
-  .choice-prefix {
+  .qPrefix {
     padding: 1.5rem 2.5rem;
-    background-color: #56a5eb;
-    color: white;
+    background-color: purple;
+    color: gold;
   }
   
-  .choice-text {
+  .qText  {
     padding: 1.5rem;
     width: 100%;
   }
@@ -34,28 +34,28 @@
   }
   
   
-  #hud {
+  #display {
     display: flex;
     justify-content: space-between;
   }
   
-  .hud-prefix {
+  .display-prefix {
     text-align: center;
     font-size: 2rem;
   }
   
-  .hud-main-text {
+  .progress-main-text {
     text-align: center;
   }
   
-  #progressBar {
+  #gameBar {
     width: 20rem;
     height: 4rem;
     border: 0.3rem solid #56a5eb;
     margin-top: 1.5rem;
   }
   
-  #progressBarFull {
+  #gameBarFull {
     height: 3.4rem;
     background-color: #56a5eb;
     width: 0%;
