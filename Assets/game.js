@@ -1,9 +1,9 @@
 const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choice-text'));
+const choices = Array.from(document.getElementsByClassName('qText'));
 const text = document.getElementById('text');
 const scoreText = document.getElementById('score');
 const gameBarFull = document.getElementById('gameBarFull');
-const loader = document.getElementById('loader');
+const loader = document.getElementById('progress-bar');
 const gamer = document.getElementById('gamer');
 var clock = document.getElementById('timer')
 var firstQuestion = {};
@@ -84,7 +84,8 @@ getNewQuestion = () => {
         return endGame();
     }
     questionCounter++;
-    text.innerText = `Question ${questionCounter}/${MAX_QUESTIONSgame.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+    text.innerText = `Question ${questionCounter}/${MAX_QUESTIONS} `
+    gamer.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
     const questionIndex = Math.floor(Math.random() * questionList.length);
     firstQuestion = questionList[questionIndex];
